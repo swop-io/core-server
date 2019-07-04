@@ -9,7 +9,7 @@ class BlockchainClient {
         this.provider = ethers.getDefaultProvider('ropsten')
         this.wallet = new ethers.Wallet(process.env.ROPSTEN_ACCOUNT1_PK, this.provider)
         this.contract = new ethers.Contract(contractAddress, abi, this.provider).connect(this.wallet)
-        this.startListener()
+        // this.startListener()
     }
 
     async completeTransaction(swopRefNo){
@@ -17,7 +17,7 @@ class BlockchainClient {
     }
 
     async startListener(){
-        this.contract.on("SellTicket", (seller, swopRefNo, amount) => {
+        this.contract.on("TicketPosted", (seller, swopRefNo, amount) => {
             // update ticket status
             // this.firebaseDB.updateTicketStatus(swopRefNo)
         })

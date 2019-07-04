@@ -1,4 +1,9 @@
 const TicketManager = require('./ticket_manager')
-const ticketManger = new TicketManager()
+const PartnerClient = require('./partner')
 
-ticketManger.sellTicket()
+// const ticketManger = new TicketManager()
+const partnerClient = new PartnerClient()
+
+// ticketManger.sellTicket()
+
+partnerClient.verifyTicket('asd')

@@ -20,7 +20,9 @@ app.get('/search', (req, res) => {
 
 
 app.post('/verifyTicket', (req, res) => {
-
+    let response = ticketManager.verifyTicket(req.body.bookingRefNo)
+    console.log(response)
+    res.send(response)
 })
 
 

@@ -18,8 +18,11 @@ class TicketManager {
 
     }
 
-    async verifyTicket(bookingRefNo){
+    verifyTicket(bookingRefNo){
+        let response = this.partner.verifyTicket(bookingRefNo)
 
+        // save ticket details to DB
+        return response
     }
 
 }
