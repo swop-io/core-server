@@ -8,31 +8,19 @@ const ticketManager = new TicketManager()
 
 app.use(bodyParser.json());
 
-app.get('/getTicketAmount', (req, res) => {
-    ticketManager.getTicketAmount().then((amount) => {
-        console.log(amount)
-        res.send(amount)
-    }).catch(err => {
-        res.send(err)
-    })
+
+
+app.get('/checkTicketStatus', (req, res) => {
+
 })
 
-app.get('/getSwopRefNo', (req, res) => {
-    ticketManager.getSwopRefNo().then((swopRefNo) => {
-        console.log(swopRefNo)
-        res.send(swopRefNo)
-    }).catch(err => {
-        res.send(err)
-    })
+app.get('/search', (req, res) => {
+
 })
 
-app.post('/sellTicket', (req, res) => {
-    ticketManager.sell(req.body).then((txHash) => {
-        console.log(txHash)
-        res.send(txHash)
-    }).catch(err => {
-        res.send(err)
-    })
+
+app.post('/verifyTicket', (req, res) => {
+
 })
 
 

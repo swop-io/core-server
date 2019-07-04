@@ -1,26 +1,25 @@
-const BlockchainHelper = require('../blockchain')
-const LocalDatabase = require('../database')
+const BlockchainClient = require('../blockchain')
+const FirebaseClient = require('../database')
+const PartnerClient = require('../partner')
 
 class TicketManager {
 
     constructor(){
-        this.blockchain = new BlockchainHelper()
-        
-        // for future use
-        this.localDb = new LocalDatabase()
+        this.firebaseDB = new FirebaseClient()
+        this.blockchain = new BlockchainClient(this.firebaseDB)
+        this.partner = new PartnerClient()
+    }
+    
+    async search(param){
+
     }
 
-    async sell(ticketInfo){
-        let txHash = await this.blockchain.sellTicket(ticketInfo)
-        return txHash
+    async checkTicketStatus(swopRefNo){
+
     }
 
-    async getTicketAmount(){
-        return await this.blockchain.getTicketAmount()
-    }
+    async verifyTicket(bookingRefNo){
 
-    async getSwopRefNo(){
-        return await this.blockchain.getSwopRefNo()
     }
 
 }
