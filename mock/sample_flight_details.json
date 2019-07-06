@@ -1,44 +1,56 @@
 [
     {
-        "amount" : "",
+        "amount" : "$300",
         "airline" : "",
         "airportCode" : "",
         "arrivalDateTime" : "",
-        "departureDateTime" : ""
+        "departureDateTime" : "",
+        "origin" : "",
+        "destination" : ""
     },
     {
         "amount" : "$500",
         "airline" : "",
         "airportCode" : "",
         "arrivalDateTime" : "",
-        "departureDateTime" : ""
+        "departureDateTime" : "",
+        "origin" : "",
+        "destination" : ""
     },
     {
         "amount" : "",
         "airline" : "",
         "airportCode" : "",
         "arrivalDateTime" : "",
-        "departureDateTime" : ""
+        "departureDateTime" : "",
+        "origin" : "",
+        "destination" : ""
     },
     {
         "amount" : "",
         "airline" : "",
         "airportCode" : "",
         "arrivalDateTime" : "",
-        "departureDateTime" : ""
+        "departureDateTime" : "",
+        "origin" : "",
+        "destination" : ""
     },
     {
         "amount" : "",
         "airline" : "",
         "airportCode" : "",
         "arrivalDateTime" : "",
-        "departureDateTime" : ""
+        "departureDateTime" : "",
+        "origin" : "",
+        "destination" : ""
     },
     {
         "amount" : "",
         "airline" : "",
         "airportCode" : "",
         "arrivalDateTime" : "",
-        "departureDateTime" : ""
+        "departureDateTime" : "",
+        "origin" : "",
+        "destination" : ""
     }
 ]

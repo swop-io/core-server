@@ -15,9 +15,11 @@ class FirebaseClient {
         this.flightRef = this.database.ref(PATH_FLIGHT_INFO)
     }
 
-    async saveFlightDetails(param){
+    saveFlightDetails(data){
+        data['status'] = 'PENDING'
+
         let newDataRef = this.flightRef.push()
-        newDataRef.set({ test : "test data"})
+        newDataRef.set(data)
     }
 
     async updateTicketStatus(swopRefNo){
@@ -29,7 +31,9 @@ class FirebaseClient {
     }
 
     async retrieveAllListing(){
-
+       let results = await this.flightRef.once('value')
+       let response = results.val()
+       return response
     }
 
     async getTicketStatus(swopRefNo){

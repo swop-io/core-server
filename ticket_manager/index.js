@@ -11,7 +11,12 @@ class TicketManager {
     }
     
     async search(param){
+        return await this.firebaseDB.retrieveAllListing()
+        // if(param.isEmpty()){
+        //     return this.firebaseDB.retrieveAllListing()
+        // } 
 
+        // return this.firebaseDB.retrieveListByParam(param)
     }
 
     async checkTicketStatus(swopRefNo){
@@ -21,7 +26,11 @@ class TicketManager {
     verifyTicket(bookingRefNo){
         let response = this.partner.verifyTicket(bookingRefNo)
 
-        // save ticket details to DB
+        if(response.code === 200){
+            // TODO run on separate thread
+            this.firebaseDB.saveFlightDetails(response.data)
+        }
+
         return response
     }
 
