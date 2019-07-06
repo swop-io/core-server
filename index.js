@@ -7,6 +7,10 @@ const port = 3000
 const ticketManager = new TicketManager()
 app.use(bodyParser.json());
 
+app.get('/test', (req, res) => {
+    res.send('Server is running!')
+})
+
 app.get('/checkTicketStatus', (req, res) => {
 
 })
