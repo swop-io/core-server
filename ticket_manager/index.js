@@ -34,6 +34,10 @@ class TicketManager {
         return response
     }
 
+    retrieveTestBookings(){
+        return this.partner.retrieveTestBookings()
+    }
+
 }
 
 module.exports = TicketManager

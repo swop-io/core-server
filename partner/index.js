@@ -31,6 +31,10 @@ class PartnerClient {
         return true
     }
 
+    retrieveTestBookings(){
+        return JSON.stringify(Array.from(this.map.entries()))
+    }
+
     generateTestBookings(){
         console.log('==== TEST BOOKING REFERENCE NUMBERS ====')
 

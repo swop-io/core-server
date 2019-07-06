@@ -5,6 +5,7 @@ const url = require('url')
 const app = express()
 const port = 3000
 const ticketManager = new TicketManager()
+
 app.use(bodyParser.json());
 
 app.all('*', function(req, res, next) {
@@ -16,6 +17,10 @@ app.all('*', function(req, res, next) {
 
 app.get('/test', (req, res) => {
     res.send('Server is running!')
+})
+
+app.get('/testBookings', (req, res) => {
+    res.send(ticketManager.retrieveTestBookings())
 })
 
 app.get('/checkTicketStatus', (req, res) => {
