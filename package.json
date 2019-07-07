@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/karlptrck/swop-backend#readme",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "ethers": "^4.0.30",
     "express": "^4.17.1",
     "firebase-admin": "^8.2.0"

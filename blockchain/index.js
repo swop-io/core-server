@@ -1,4 +1,5 @@
 const ethers = require('ethers')
+require('dotenv').config()
 const publicEntryABI = require('./abi/PublicEntry.json')
 const swopManagerABI = require('./abi/SwopManager.json')
 
@@ -10,7 +11,7 @@ class BlockchainClient {
     constructor(firebaseDB){
         this.firebaseDB = firebaseDB
         this.provider = ethers.getDefaultProvider('ropsten')
-        this.wallet = new ethers.Wallet(process.env.ROPSTEN_ACCOUNT1_PK, this.provider)
+        this.wallet = new ethers.Wallet(process.env.ROPSTEN_DEV1_PK, this.provider)
         
         this.publicEntryContract = new ethers.Contract(publicEntryAddress, publicEntryABI, this.provider).connect(this.wallet)
         this.swopManagerContract = new ethers.Contract(swopManagerAddress, swopManagerABI, this.provider).connect(this.wallet)
