@@ -23,7 +23,7 @@ class FirebaseClient {
     }
 
     async updateTicketStatus(swopRefNo){
-
+        console.log('update ticket status: ' + swopRefNo)
     }
 
     async retrieveListByParam(param){

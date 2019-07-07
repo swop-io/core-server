@@ -1,56 +1,29 @@
 [
     {
         "amount" : "$300",
-        "airline" : "",
+        "airline" : "Air Canada",
         "airportCode" : "",
-        "arrivalDateTime" : "",
-        "departureDateTime" : "",
-        "origin" : "",
-        "destination" : ""
+        "arrivalDateTime" : "10 July 2019, 09:00 AM",
+        "departureDateTime" : "10 July 2019, 07:00 AM",
+        "origin" : "Toronto",
+        "destination" : "New York"
     },
     {
         "amount" : "$500",
-        "airline" : "",
+        "airline" : "Air Canada",
         "airportCode" : "",
-        "arrivalDateTime" : "",
-        "departureDateTime" : "",
-        "origin" : "",
-        "destination" : ""
+        "arrivalDateTime" : "10 July 2019, 09:00 AM",
+        "departureDateTime" : "10 July 2019, 07:00 AM",
+        "origin" : "Toronto",
+        "destination" : "New York"
     },
     {
-        "amount" : "",
-        "airline" : "",
+        "amount" : "$1500",
+        "airline" : "Air Canada",
         "airportCode" : "",
-        "arrivalDateTime" : "",
-        "departureDateTime" : "",
-        "origin" : "",
-        "destination" : ""
-    },
-    {
-        "amount" : "",
-        "airline" : "",
-        "airportCode" : "",
-        "arrivalDateTime" : "",
-        "departureDateTime" : "",
-        "origin" : "",
-        "destination" : ""
-    },
-    {
-        "amount" : "",
-        "airline" : "",
-        "airportCode" : "",
-        "arrivalDateTime" : "",
-        "departureDateTime" : "",
-        "origin" : "",
-        "destination" : ""
-    },
-    {
-        "amount" : "",
-        "airline" : "",
-        "airportCode" : "",
-        "arrivalDateTime" : "",
-        "departureDateTime" : "",
-        "origin" : "",
-        "destination" : ""
+        "arrivalDateTime" : "20 July 2019, 11:00 AM",
+        "departureDateTime" : "21 July 2019, 07:00 PM",
+        "origin" : "Toronto",
+        "destination" : "Singapore"
     }
 ]
