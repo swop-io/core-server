@@ -43,5 +43,11 @@ app.post('/verifyTicket', (req, res) => {
     res.send(response)
 })
 
+app.post('/placeBid', (req, res) => {
+    let response = ticketManager.placeBid(req.body)
+    console.log(response)
+    res.send(response)
+})
+
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`))

@@ -2,6 +2,8 @@ const admin = require("firebase-admin");
 const serviceAccount = require("../swopServiceAccountKey.json");
 
 const PATH_FLIGHT_INFO = '/fligthInfo'
+const PATH_AUCTIONS = '/auctions'
+const PATH_BIDS = '/bids'
 
 class FirebaseClient {
 
@@ -13,6 +15,8 @@ class FirebaseClient {
 
         this.database = admin.database()
         this.flightRef = this.database.ref(PATH_FLIGHT_INFO)
+        this.auctionRef = this.database.ref(PATH_AUCTIONS)
+
     }
 
     saveFlightDetails(data){
@@ -21,6 +25,64 @@ class FirebaseClient {
         let newDataRef = this.flightRef.push()
         newDataRef.set(data)
     }
+
+    saveBid(payload){
+        let auctionRef = this.auctionRef.child(payload.swopRefNo)
+        let bidRef = this.database.ref(`${PATH_BIDS}/${payload.swopRefNo}`)
+
+        auctionRef.once("value", function(snapshot) {
+      
+            let auctionDetails = snapshot.val()
+
+            if(auctionDetails === null) {
+                console.log('creating new auction')
+                auctionRef.set({
+                    lowestAskAmount : payload.lowestAskAmount,
+                    maxAskAmount : payload.maxAskAmount,
+                    highestBidAmount : 0,
+                    currentNonce : 0
+
+                })
+              
+                bidRef.set({
+                        0 : {
+                            amount : payload.bidAmount,
+                            user : payload.user,
+                            datetime : 'datetimehere',
+                            signature : {
+                                r : payload.signature.r,
+                                s : payload.signature.s,
+                                v : payload.signature.v
+
+                            }
+                        }
+                })
+            } else {
+                console.log('adding new bid')
+                let newNonce = auctionDetails.currentNonce + 1
+                
+                bidRef.child(newNonce).set({
+                        amount : payload.bidAmount,
+                        user : payload.user,
+                        datetime : 'datetimehere',
+                        signature : {
+                            r : payload.signature.r,
+                            s : payload.signature.s,
+                            v : payload.signature.v
+
+                        }
+                })
+         
+                auctionRef.update({
+                    currentNonce : newNonce
+                })
+            }
+          }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+          });
+    }
+
+
 
     async updateTicketStatus(swopRefNo){
         console.log('update ticket status: ' + swopRefNo)

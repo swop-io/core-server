@@ -38,6 +38,17 @@ class TicketManager {
         return this.partner.retrieveTestBookings()
     }
 
+    placeBid(payload){
+        try{
+            console.log('payload: ' + JSON.stringify(payload))
+            this.firebaseDB.saveBid(payload)
+            return { msg : 'added successfully'}
+        }catch(e){
+            console.log(e)
+            return { msg : 'failed to add'}
+        }
+    }
+
 }
 
 module.exports = TicketManager

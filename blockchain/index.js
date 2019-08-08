@@ -11,25 +11,25 @@ class BlockchainClient {
     constructor(firebaseDB){
         this.firebaseDB = firebaseDB
         this.provider = ethers.getDefaultProvider('ropsten')
-        this.wallet = new ethers.Wallet(process.env.ROPSTEN_DEV1_PK, this.provider)
+        // this.wallet = new ethers.Wallet(process.env.ROPSTEN_DEV1_PK, this.provider)
         
-        this.publicEntryContract = new ethers.Contract(publicEntryAddress, publicEntryABI, this.provider).connect(this.wallet)
-        this.swopManagerContract = new ethers.Contract(swopManagerAddress, swopManagerABI, this.provider).connect(this.wallet)
+        // this.publicEntryContract = new ethers.Contract(publicEntryAddress, publicEntryABI, this.provider).connect(this.wallet)
+        // this.swopManagerContract = new ethers.Contract(swopManagerAddress, swopManagerABI, this.provider).connect(this.wallet)
        
-        this.startListener()
+        // this.startListener()
     }
 
     async completeTransaction(swopRefNo){
 
     }
 
-    async startListener(){
-        this.swopManagerContract.on("TicketPosted", (swopRefNo, amount, seller) => {
-            console.log(`Ticket Posted: ${swopRefNo}`)
-            // update ticket status
-            this.firebaseDB.updateTicketStatus(swopRefNo)
-        })
-    }
+    // async startListener(){
+    //     this.swopManagerContract.on("TicketPosted", (swopRefNo, amount, seller) => {
+    //         console.log(`Ticket Posted: ${swopRefNo}`)
+    //         // update ticket status
+    //         this.firebaseDB.updateTicketStatus(swopRefNo)
+    //     })
+    // }
 }
 
 module.exports = BlockchainClient
