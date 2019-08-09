@@ -4,6 +4,10 @@ const serviceAccount = require("../swopServiceAccountKey.json");
 const PATH_FLIGHT_INFO = '/fligthInfo'
 const PATH_AUCTIONS = '/auctions'
 const PATH_BIDS = '/bids'
+const PATH_TICKETS = '/tickets'
+const TICKET_STATUS = { PENDING : 'PENDING', 
+                        IN_PROGRESS : 'IN_PROGRESS', 
+                        COMPLETED : 'COMPLETED' }
 
 class FirebaseClient {
 
@@ -11,7 +15,7 @@ class FirebaseClient {
         admin.initializeApp({
             credential: admin.credential.cert(serviceAccount),
             databaseURL: "https://swop-mvp.firebaseio.com"
-          });
+        });
 
         this.database = admin.database()
         this.flightRef = this.database.ref(PATH_FLIGHT_INFO)
@@ -19,11 +23,21 @@ class FirebaseClient {
 
     }
 
-    saveFlightDetails(data){
-        data['status'] = 'PENDING'
+    saveTicket(payload){
+        let ticketRef = this.database.ref(`${PATH_TICKETS}/${payload.swopRefNo}`)
+        ticketRef.set({
+            amount : payload.amount,
+            airline : payload.airline,
+            depart : payload.depart,
+            return : payload.return,
+            status : TICKET_STATUS.PENDING
+        }) 
+    }
 
-        let newDataRef = this.flightRef.push()
-        newDataRef.set(data)
+    async retrieveTicket(swopRefNo){
+        let ticketRef = this.database.ref(`${PATH_TICKETS}/${swopRefNo}`)
+        let result = await ticketRef.once('value')
+        return result.val()
     }
 
     saveBid(payload){

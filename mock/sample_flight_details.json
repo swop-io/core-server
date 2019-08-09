@@ -1,29 +1,83 @@
 [
     {
-        "amount" : "$300",
+        "amount" : 300,
         "airline" : "Air Canada",
-        "airportCode" : "",
-        "arrivalDateTime" : "10 July 2019, 09:00 AM",
-        "departureDateTime" : "10 July 2019, 07:00 AM",
-        "origin" : "Toronto",
-        "destination" : "New York"
+        "depart" : {
+            "origin" : "Toronto",
+            "originAirportCode" : "YYZ",
+            "destination" : "New York",
+            "destinationAirportCode" : "JFK",
+            "departureDateTime" : "August 17, 2019 3:00 PM",
+            "arrivalDateTime" : "August 17, 2019 6:00 PM"
+        },
+        "return" : {
+            "origin" : "New York",
+            "originAirportCode" : "JFK",
+            "destination" : "Toronto",
+            "destinationAirportCode" : "YYZ",
+            "departureDateTime" : "August 20, 2019 12:00 PM",
+            "arrivalDateTime" : "August 20, 2019 3:00 PM"
+        }
     },
     {
-        "amount" : "$500",
-        "airline" : "Air Canada",
-        "airportCode" : "",
-        "arrivalDateTime" : "10 July 2019, 09:00 AM",
-        "departureDateTime" : "10 July 2019, 07:00 AM",
-        "origin" : "Toronto",
-        "destination" : "New York"
+        "amount" : 400,
+        "airline" : "Delta",
+        "depart" : {
+            "origin" : "Toronto",
+            "originAirportCode" : "YYZ",
+            "destination" : "New York",
+            "destinationAirportCode" : "JFK",
+            "departureDateTime" : "August 17, 2019 3:00 PM",
+            "arrivalDateTime" : "August 17, 2019 6:00 PM"
+        },
+        "return" : {
+            "origin" : "New York",
+            "originAirportCode" : "JFK",
+            "destination" : "Toronto",
+            "destinationAirportCode" : "YYZ",
+            "departureDateTime" : "August 20, 2019 12:00 PM",
+            "arrivalDateTime" : "August 20, 2019 3:00 PM"
+        }
     },
     {
-        "amount" : "$1500",
+        "amount" : 500,
+        "airline" : "American Airlines",
+        "depart" : {
+            "origin" : "Toronto",
+            "originAirportCode" : "YYZ",
+            "destination" : "New York",
+            "destinationAirportCode" : "JFK",
+            "departureDateTime" : "August 17, 2019 3:00 PM",
+            "arrivalDateTime" : "August 17, 2019 6:00 PM"
+        },
+        "return" : {
+            "origin" : "New York",
+            "originAirportCode" : "JFK",
+            "destination" : "Toronto",
+            "destinationAirportCode" : "YYZ",
+            "departureDateTime" : "August 20, 2019 12:00 PM",
+            "arrivalDateTime" : "August 20, 2019 3:00 PM"
+        }
+    },
+    {
+        "amount" : 600,
         "airline" : "Air Canada",
-        "airportCode" : "",
-        "arrivalDateTime" : "20 July 2019, 11:00 AM",
-        "departureDateTime" : "21 July 2019, 07:00 PM",
-        "origin" : "Toronto",
-        "destination" : "Singapore"
+        "depart" : {
+            "origin" : "Toronto",
+            "originAirportCode" : "YYZ",
+            "destination" : "New York",
+            "destinationAirportCode" : "JFK",
+            "departureDateTime" : "August 17, 2019 3:00 PM",
+            "arrivalDateTime" : "August 17, 2019 6:00 PM"
+        },
+        "return" : {
+            "origin" : "New York",
+            "originAirportCode" : "JFK",
+            "destination" : "Toronto",
+            "destinationAirportCode" : "YYZ",
+            "departureDateTime" : "August 20, 2019 12:00 PM",
+            "arrivalDateTime" : "August 20, 2019 3:00 PM"
+        }
     }
 ]
+

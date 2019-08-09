@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const TicketManager = require('./ticket_manager')
 const url = require('url')
 const app = express()
-const port = 3000
+const port = 3001
 const ticketManager = new TicketManager()
 
 app.use(bodyParser.json());
@@ -15,16 +15,17 @@ app.all('*', function(req, res, next) {
     next();
 });
 
-app.get('/test', (req, res) => {
-    res.send('Server is running!')
-})
-
 app.get('/testBookings', (req, res) => {
     res.send(ticketManager.retrieveTestBookings())
 })
 
-app.get('/checkTicketStatus', (req, res) => {
-
+app.get('/getTicketDetails', async (req, res) => {
+    let parts = url.parse(req.url, true)
+    let query = parts.query
+    
+    let response = await ticketManager.retrieveTicket(query.swopRefNo)
+    console.log(response)
+    res.send(response)
 })
 
 app.get('/search', async (req, res) => {
@@ -38,6 +39,7 @@ app.get('/search', async (req, res) => {
 
 
 app.post('/verifyTicket', (req, res) => {
+    console.log(req.body.bookingRefNo)
     let response = ticketManager.verifyTicket(req.body.bookingRefNo)
     console.log(response)
     res.send(response)

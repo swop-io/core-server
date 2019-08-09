@@ -49,11 +49,11 @@ class PartnerClient {
     }
 
     generateSwopRefNo(){
-        return `SWP#${crypto.randomBytes(4).toString("hex")}`
+        return `SWP${crypto.randomBytes(4).toString("hex")}`
     }
 
     generateBookingRefNo(){
-        return `BKN#${crypto.randomBytes(4).toString("hex")}`
+        return `BKN${crypto.randomBytes(4).toString("hex")}`
     }
 }
 

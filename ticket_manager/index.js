@@ -28,10 +28,14 @@ class TicketManager {
 
         if(response.code === 200){
             // TODO run on separate thread
-            this.firebaseDB.saveFlightDetails(response.data)
+            this.firebaseDB.saveTicket(response.data)
         }
 
         return response
+    }
+
+    retrieveTicket(swopRefNo){
+        return this.firebaseDB.retrieveTicket(swopRefNo)
     }
 
     retrieveTestBookings(){
