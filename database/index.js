@@ -88,7 +88,8 @@ class FirebaseClient {
                 })
          
                 auctionRef.update({
-                    currentNonce : newNonce
+                    currentNonce : newNonce,
+                    highestBidAmount : payload.bidAmount
                 })
             }
           }, function (errorObject) {
