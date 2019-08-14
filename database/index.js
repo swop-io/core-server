@@ -32,6 +32,14 @@ class FirebaseClient {
             return : payload.return,
             status : TICKET_STATUS.PENDING
         }) 
+
+        let auctionRef = this.auctionRef.child(payload.swopRefNo)
+        auctionRef.set({
+            lowestAskAmount : payload.lowestAskAmount,
+            maxAskAmount : payload.amount,
+            highestBidAmount : 0,
+            currentNonce : 0
+        })
     }
 
     async retrieveTicket(swopRefNo){

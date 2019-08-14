@@ -28,10 +28,16 @@ class TicketManager {
 
         if(response.code === 200){
             // TODO run on separate thread
-            this.firebaseDB.saveTicket(response.data)
+            // this.firebaseDB.saveTicket(response.data)
         }
 
         return response
+    }
+
+    postTicket(payload){
+        console.log(payload)
+        this.firebaseDB.saveTicket(payload)
+        return { code : 200, msg : 'Success' }
     }
 
     retrieveTicket(swopRefNo){

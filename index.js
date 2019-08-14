@@ -37,6 +37,12 @@ app.get('/search', async (req, res) => {
     res.send(response)
 })
 
+app.post('/postTicket', (req, res) => {
+    console.log('body: ' + req.body)
+    let response = ticketManager.postTicket(req.body)
+    console.log(response)
+    res.send(response)
+})
 
 app.post('/verifyTicket', (req, res) => {
     console.log(req.body.bookingRefNo)
