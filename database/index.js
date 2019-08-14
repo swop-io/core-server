@@ -5,6 +5,7 @@ const PATH_FLIGHT_INFO = '/fligthInfo'
 const PATH_AUCTIONS = '/auctions'
 const PATH_BIDS = '/bids'
 const PATH_TICKETS = '/tickets'
+const PATH_LISTINGS = '/listings'
 const TICKET_STATUS = { PENDING : 'PENDING', 
                         IN_PROGRESS : 'IN_PROGRESS', 
                         COMPLETED : 'COMPLETED' }
@@ -20,6 +21,7 @@ class FirebaseClient {
         this.database = admin.database()
         this.flightRef = this.database.ref(PATH_FLIGHT_INFO)
         this.auctionRef = this.database.ref(PATH_AUCTIONS)
+        this.listingRef = this.database.ref(PATH_LISTINGS)
 
     }
 
@@ -30,7 +32,8 @@ class FirebaseClient {
             airline : payload.airline,
             depart : payload.depart,
             return : payload.return,
-            status : TICKET_STATUS.PENDING
+            status : TICKET_STATUS.PENDING,
+            createdAt : new Date().getTime()
         }) 
 
         let auctionRef = this.auctionRef.child(payload.swopRefNo)
@@ -40,6 +43,9 @@ class FirebaseClient {
             highestBidAmount : 0,
             currentNonce : 0
         })
+
+        let listingRef = this.database.ref(`${PATH_LISTINGS}/${payload.user}/${payload.swopRefNo}`)
+        listingRef.set({ status : 'ACTIVE'})
     }
 
     async retrieveTicket(swopRefNo){
