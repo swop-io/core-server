@@ -59,29 +59,34 @@ class FirebaseClient {
         let bidRef = this.database.ref(`${PATH_BIDS}/${payload.swopRefNo}`)
 
         auctionRef.once("value", function(snapshot) {
-      
+            let date = new Date()
+            let dateStr = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
             let auctionDetails = snapshot.val()
 
             if(auctionDetails === null) {
                 console.log('creating new auction')
                 auctionRef.set({
-                    lowestAskAmount : payload.lowestAskAmount,
-                    maxAskAmount : payload.maxAskAmount,
-                    highestBidAmount : 0,
-                    currentNonce : 0
+                    highestBidAmount : payload.bidAmount,
+                    currentNonce : 0,
+                    currentSignature :  {
+                        r : payload.signature.r,
+                        s : payload.signature.s,
+                        v : payload.signature.v
 
+                    }
                 })
               
+
+             
                 bidRef.set({
                         0 : {
                             amount : payload.bidAmount,
                             user : payload.user,
-                            datetime : 'datetimehere',
+                            datetime : dateStr,
                             signature : {
                                 r : payload.signature.r,
                                 s : payload.signature.s,
                                 v : payload.signature.v
-
                             }
                         }
                 })
@@ -92,7 +97,7 @@ class FirebaseClient {
                 bidRef.child(newNonce).set({
                         amount : payload.bidAmount,
                         user : payload.user,
-                        datetime : 'datetimehere',
+                        datetime : dateStr,
                         signature : {
                             r : payload.signature.r,
                             s : payload.signature.s,
@@ -103,7 +108,13 @@ class FirebaseClient {
          
                 auctionRef.update({
                     currentNonce : newNonce,
-                    highestBidAmount : payload.bidAmount
+                    highestBidAmount : payload.bidAmount,
+                    currentSignature :  {
+                        r : payload.signature.r,
+                        s : payload.signature.s,
+                        v : payload.signature.v
+
+                    }
                 })
             }
           }, function (errorObject) {
