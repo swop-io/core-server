@@ -5,14 +5,14 @@
         "depart" : {
             "origin" : "Toronto",
             "originAirportCode" : "YYZ",
-            "destination" : "New York",
-            "destinationAirportCode" : "JFK",
+            "destination" : "Los Angeles",
+            "destinationAirportCode" : "LAX",
             "departureDateTime" : "August 17, 2019 3:00 PM",
             "arrivalDateTime" : "August 17, 2019 6:00 PM"
         },
         "return" : {
-            "origin" : "New York",
-            "originAirportCode" : "JFK",
+            "origin" : "Los Angeles",
+            "originAirportCode" : "LAX",
             "destination" : "Toronto",
             "destinationAirportCode" : "YYZ",
             "departureDateTime" : "August 20, 2019 12:00 PM",
@@ -41,18 +41,18 @@
     },
     {
         "amount" : 500,
-        "airline" : "American Airlines",
+        "airline" : "Westjet",
         "depart" : {
             "origin" : "Toronto",
             "originAirportCode" : "YYZ",
-            "destination" : "New York",
-            "destinationAirportCode" : "JFK",
+            "destination" : "Calgary",
+            "destinationAirportCode" : "YYC",
             "departureDateTime" : "August 17, 2019 3:00 PM",
             "arrivalDateTime" : "August 17, 2019 6:00 PM"
         },
         "return" : {
-            "origin" : "New York",
-            "originAirportCode" : "JFK",
+            "origin" : "Calgary",
+            "originAirportCode" : "YYC",
             "destination" : "Toronto",
             "destinationAirportCode" : "YYZ",
             "departureDateTime" : "August 20, 2019 12:00 PM",
