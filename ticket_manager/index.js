@@ -10,32 +10,11 @@ class TicketManager {
         this.partner = new PartnerClient()
     }
     
-    async search(param){
-        return await this.firebaseDB.retrieveAllListing()
-        // if(param.isEmpty()){
-        //     return this.firebaseDB.retrieveAllListing()
-        // } 
-
-        // return this.firebaseDB.retrieveListByParam(param)
-    }
-
-    async checkTicketStatus(swopRefNo){
-
-    }
-
     verifyTicket(bookingRefNo){
-        let response = this.partner.verifyTicket(bookingRefNo)
-
-        if(response.code === 200){
-            // TODO run on separate thread
-            // this.firebaseDB.saveTicket(response.data)
-        }
-
-        return response
+        return this.partner.verifyTicket(bookingRefNo)
     }
 
     postTicket(payload){
-        console.log(payload)
         this.firebaseDB.saveTicket(payload)
         return { code : 200, msg : 'Success' }
     }
@@ -50,7 +29,6 @@ class TicketManager {
 
     placeBid(payload){
         try{
-            console.log('payload: ' + JSON.stringify(payload))
             this.firebaseDB.saveBid(payload)
             return { msg : 'added successfully'}
         }catch(e){

@@ -121,26 +121,6 @@ class FirebaseClient {
             console.log("The read failed: " + errorObject.code);
           });
     }
-
-
-
-    async updateTicketStatus(swopRefNo){
-        console.log('update ticket status: ' + swopRefNo)
-    }
-
-    async retrieveListByParam(param){
-
-    }
-
-    async retrieveAllListing(){
-       let results = await this.flightRef.once('value')
-       let response = results.val()
-       return response
-    }
-
-    async getTicketStatus(swopRefNo){
-        
-    }
 }
 
 module.exports = FirebaseClient

@@ -28,24 +28,13 @@ app.get('/getTicketDetails', async (req, res) => {
     res.send(response)
 })
 
-app.get('/search', async (req, res) => {
-    let parts = url.parse(req.url, true)
-    let query = parts.query
-
-    let response = await ticketManager.search('')
-    console.log(response)
-    res.send(response)
-})
-
 app.post('/postTicket', (req, res) => {
-    console.log('body: ' + req.body)
     let response = ticketManager.postTicket(req.body)
     console.log(response)
     res.send(response)
 })
 
 app.post('/verifyTicket', (req, res) => {
-    console.log(req.body.bookingRefNo)
     let response = ticketManager.verifyTicket(req.body.bookingRefNo)
     console.log(response)
     res.send(response)
